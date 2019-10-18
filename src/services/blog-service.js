@@ -1,4 +1,5 @@
 // sequelize dis shit
+const Blog = require('../models/Blog.sequelize');
 
 module.exports = {
 
