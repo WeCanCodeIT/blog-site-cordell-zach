@@ -3,9 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./src/routes/index');
+const blogRouter = require('./src/routes/blog-router');
 
+const sequelize = require('./utils/db');
 var app = express();
 
 // view engine setup
@@ -19,6 +20,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/blogs/', blogRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,5 +37,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+sequelize.sync({force:true})
+  .then(() => {console.log('Connected to the database!')
+  .catch(console.error)
+})
 
 module.exports = app;
