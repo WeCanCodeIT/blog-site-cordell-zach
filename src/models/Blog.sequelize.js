@@ -26,18 +26,17 @@ allowNull: false
 genre: {
 type: Sequelize.STRING,
 allowNull: false
-
 },
 
 publishDate: {
 type: Sequelize.STRING,
 allowNull: false
-
 },
 
 tags: {
 type: Sequelize.STRING,  
-allowNull: false
-      
-}})
+allowNull: false  
+}
+})
+
 module.exports = Blog;

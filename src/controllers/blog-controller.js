@@ -15,7 +15,6 @@ class BlogController {
   }
   
   static async renderAll (req, res) {
-    
     res.render("blogs/all", { blog: await blogService.findAll() });    
   }
 

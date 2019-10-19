@@ -5,5 +5,15 @@
         {{blogs}}
         This is where all blogs will be represented by cards. Each card will link to the large
         single-blog view.
+        {{!-- {{#each Blog}} --}}
+        <a href="/blogs/single/{{id}}"><div class="blog-card__wrapper">
+            <ul>
+                <li class="blog-card__property" name="title">{{title}}TITLE</li>
+                <li class="blog-card__property" name="author">{{author}}AUTHOR</li>
+                <li class="blog-card__property" name="genre">{{genre}}GENRE</li>
+                <li class="blog-card__property" name="publishDate">{{publishDate}}PUBLISH DATE</li>
+            </ul>
+        </a></div>
+        {{!-- {{/each}} --}}
     </section>
 </body>
