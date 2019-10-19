@@ -11,17 +11,18 @@ class BlogController {
     const publishDate = req.body.publishDate;
 
     await blogService.save(new Blog(author, publishDate, blogBody, title, genre, tags));
-    res.redirect('/blog/');
+    res.redirect('/blog');
   }
   
   static async renderAll (req, res) {
+    
     res.render("blogs/all", { blog: await blogService.findAll() });    
   }
 
   static async renderSingle (req, res) {
     const blog = await blogService.findById(req.params.id);
     blog.body = await blog.getBody();
-    res.render("blogs/single", { blog });
+    res.render("../blogs/single", { blog });
   }
 }
 

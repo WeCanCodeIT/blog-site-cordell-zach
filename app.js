@@ -17,10 +17,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src/public')));
 
 app.use('/', indexRouter);
-app.use('/blogs/', blogRouter);
+app.use('/blogs', blogRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,7 +40,7 @@ app.use(function(err, req, res, next) {
 
 sequelize.sync({force:true})
   .then(() => {console.log('Connected to the database!')
-  .catch(console.error)
 })
+  .catch(console.error)
 
 module.exports = app;

@@ -5,7 +5,7 @@ const Blog = sequelize.define('blog', {
 id: {
     type: Sequelize.INTEGER,
     allowNull: false,
-    primaryKSTRINGey: true
+    primaryKey: true
 },
     
 author: {
