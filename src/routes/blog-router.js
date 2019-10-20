@@ -3,7 +3,7 @@ var router = express.Router();
 const BlogController = require('../controllers/blog-controller');
 
 /* GET all blogs page. */
-router.get('/blogs/all', BlogController.renderAll);
+router.get('/all', BlogController.renderAll);
 
 
 router.get('/single', function(req, res, next) {

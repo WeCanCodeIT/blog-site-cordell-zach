@@ -16,7 +16,14 @@ class BlogController {
   }
   
   static async renderAll (req, res) {
-    res.render("/blogs/all", { blog: await blogService.findAll() });    
+      // res.render("/blogs/all", { Blog: await blogService.findAll()});
+    try {
+      const allBlogs = await blogService.findAll();
+      res.render('/blogs/all', { allBlogs });
+    } catch (error) {
+      res.render("error", {error});
+    }
+
   }
 
   static async renderSingle (req, res) {
