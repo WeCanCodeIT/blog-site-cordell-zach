@@ -10,12 +10,11 @@ class BlogController {
     const tags = req.body.tags;
     const publishDate = req.body.publishDate;
 
-    await blogService.save(new Blog(author, publishDate, blogBody, title, genre, tags));
-    res.redirect('/blog');
+    await blogService.addBlog(new Blog(author, publishDate, blogBody, title, genre, tags));
+    res.redirect('/blogs');
   }
   
   static async renderAll (req, res) {
-    
     res.render("blogs/all", { blog: await blogService.findAll() });    
   }
 

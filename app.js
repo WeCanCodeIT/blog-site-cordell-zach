@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./src/routes/index');
 const blogRouter = require('./src/routes/blog-router');
+const buildDefaultContent = require('./src/utils/default-db-content');
 
 const sequelize = require('./src/utils/db');
 var app = express();
@@ -39,7 +40,8 @@ app.use(function(err, req, res, next) {
 });
 
 sequelize.sync({force:true})
-  .then(() => {console.log('Connected to the database!')
+  .then(() => {console.log('Connected to the database!');
+  buildDefaultContent();
 })
   .catch(console.error)
 
