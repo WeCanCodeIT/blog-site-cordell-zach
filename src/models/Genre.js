@@ -1,5 +1,6 @@
 class Genre {
-    constructor(genreType){
+    constructor(id, genreType){
+        this.id = id;
         this.genreType = genreType;
     }
 }

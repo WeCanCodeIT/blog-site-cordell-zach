@@ -3,10 +3,10 @@ const sequelize = require('../utils/db');
 const Blog = sequelize.define('blog', {
 
 id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    allowNull: false,
-    primaryKey: true
+  type: Sequelize.INTEGER,
+  autoIncrement: true,
+  allowNull: false,
+  primaryKey: true
 },
     
 author: {
@@ -22,27 +22,27 @@ title: {
 },
 
 body: {
-type: Sequelize.STRING,
-// allowNull: false,
-default: "no string value"
+  type: Sequelize.STRING,
+  // allowNull: false,
+  default: "no string value"
 },
 
 genre: {
-type: Sequelize.STRING,
-// allowNull: false,
-default: "no string value"
+  type: Sequelize.STRING,
+  // allowNull: false,
+  default: "no string value"
 },
 
 publishDate: {
-type: Sequelize.STRING,
-// allowNull: false,
-default: "no string value"
+  type: Sequelize.STRING,
+  // allowNull: false,
+  default: "no string value"
 },
 
 tags: {
-type: Sequelize.STRING,  
-// allowNull: false,
-default: "no string value"
+  type: Sequelize.STRING,  
+  // allowNull: false,
+  default: "no string value"
 }
 })
 

@@ -1,4 +1,5 @@
 const blogService = require('../services/blog-service');
+const blogRouter = require('../routes/blog-router');
 const blog = require('../models/Blog');
 
 class BlogController {
@@ -15,7 +16,7 @@ class BlogController {
   }
   
   static async renderAll (req, res) {
-    res.render("blogs/all", { blog: await blogService.findAll() });    
+    res.render("/blogs/all", { blog: await blogService.findAll() });    
   }
 
   static async renderSingle (req, res) {

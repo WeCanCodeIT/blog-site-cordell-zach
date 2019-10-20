@@ -12,6 +12,11 @@ class GenreController {
     static async renderAll (req, res) {
         res.render('/genre', { genre: await genreService.findAll() });
     }
+    static async renderSingle (req, res) {
+        const genre = await genreService.findById(req.params.id);
+        genre.body = await genre.getBody();
+        res.render("/genre", { genre });
+    }
 }
 
 module.exports = GenreController

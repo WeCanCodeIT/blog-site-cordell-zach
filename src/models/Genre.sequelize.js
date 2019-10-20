@@ -16,4 +16,8 @@ const Genre = sequelize.define('genre', {
     }
 });
 
+// O.R.M.
+// Genre.hasMany(Blog)
+// Blog.belongsTo(Genre);
+
 module.exports = Genre
