@@ -12,6 +12,12 @@ const defaultBlogPopulation = [
 ];
 
 const defaultGenrePopulation = [
+    {genreType: "Sardonic Autobiography"},
+    {genreType: "Salty Old Fisherman's Tale"},
+    {genreType: "Something I read while in the Men's room"},
+    {genreType: "Atrocious Anecdotes from Argentina"},
+    {genreType: "Things that will make your mother gasp"}
+
     //some other shit
 ];
 
