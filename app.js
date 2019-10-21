@@ -3,9 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./src/routes/index');
+const blogRouter = require('./src/routes/blog-router');
+const buildDefaultContent = require('./src/utils/default-db-content');
+const genreRouter = require('./src/routes/genre-router');
 
+const sequelize = require('./src/utils/db');
 var app = express();
 
 // view engine setup
@@ -16,9 +19,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src/public')));
 
 app.use('/', indexRouter);
+app.use('/blogs', blogRouter); // <3 <3 <3
+app.use('/genres', genreRouter); //
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,5 +40,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+sequelize.sync({force:true})
+  .then(() => {console.log('Connected to the database!');
+  buildDefaultContent();
+})
+  .catch(console.error)
 
 module.exports = app;

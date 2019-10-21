@@ -1,0 +1,34 @@
+<div class="genres-wrapper">
+    <form class="genres" action="/genres" method="POST">
+    {{#if genres}}
+        <label class = "genre-card"> Genre Types: 
+           <br>
+           <br>
+            <ul name="locationId">  
+                {{#each genre}}
+                    <a class="genre-list-item" href='/genres/{{id}}'><li value="{{id}}">{{genreType}}</li></a>
+                <br>
+                {{/each}}
+            </ul>
+        </label>
+        <br>
+        <section class="join-instruction__location">
+            <label>Don't see what you're looking for?</label>
+            <br>
+            <a href='/addGenre/'><p>Add a genre to the library!</p></a>
+        </section>
+    {{/if}}
+    {{#if genre}}
+        <label class = "genre-card"> {{genreType}}
+            <br>
+            <p class="genre-card__blogs-title">All blogs within the genre {{genreTyoe}} :</p>
+            <br>
+            <ul class="location-card__reviews-list">
+                {{#each blogs}}
+                    <a href='/blogs/{{id}}'><li>{{blogTitle}}, by {{author}}</li></a>
+                {{/each}}
+            </ul>
+        </label>
+    {{/if}}
+    </form> 
+</div>
